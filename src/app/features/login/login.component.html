@@ -1,0 +1,4 @@
+<p>login works!</p>
+<button (click)="login()">Sign in with Google</button>
+<button (click)="logout()">Sign Out</button>
+<p *ngIf="auth.user() as user">Welcome, {{ user.name }}</p>
