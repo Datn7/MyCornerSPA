@@ -1,0 +1,35 @@
+<p>messages works!</p>
+<div class="messages-container">
+  <h1>Messages</h1>
+
+  <div class="select-user">
+    <label>
+      Enter User ID to Chat With:
+      <input type="number" [(ngModel)]="selectedUserId" name="userId" />
+    </label>
+    <button (click)="selectUser()">Load Conversation</button>
+  </div>
+
+  <div *ngIf="error()" class="error-message">{{ error() }}</div>
+  <div *ngIf="loading()" class="loading">Loading...</div>
+
+  <div class="conversation" *ngIf="messages().length > 0">
+    <div
+      *ngFor="let msg of messages()"
+      [class.self]="msg.senderId === 1"
+      class="message"
+    >
+      <p>{{ msg.content }}</p>
+      <span>{{ msg.timestamp | date : "short" }}</span>
+    </div>
+  </div>
+
+  <div class="send-form" *ngIf="selectedUserId">
+    <input
+      [(ngModel)]="messageContent"
+      name="messageContent"
+      placeholder="Type your message..."
+    />
+    <button (click)="sendMessage()" [disabled]="loading()">Send</button>
+  </div>
+</div>
