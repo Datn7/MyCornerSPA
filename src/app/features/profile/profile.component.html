@@ -1,0 +1,45 @@
+<p>profile works!</p>
+<div class="profile-container">
+  <h1>My Corner Profile</h1>
+
+  <form (ngSubmit)="saveProfile()" class="profile-form">
+    <label>
+      About Me
+      <textarea
+        [(ngModel)]="profile.aboutMe"
+        name="aboutMe"
+        rows="4"
+      ></textarea>
+    </label>
+
+    <label>
+      Interests (comma-separated)
+      <input [(ngModel)]="profile.interests" name="interests" />
+    </label>
+
+    <label>
+      Reactions (JSON)
+      <textarea
+        [(ngModel)]="profile.reactionsJson"
+        name="reactionsJson"
+        rows="3"
+      ></textarea>
+    </label>
+
+    <label>
+      Profile Picture URL
+      <input [(ngModel)]="profile.profilePictureUrl" name="profilePictureUrl" />
+    </label>
+
+    <label>
+      Cover Photo URL
+      <input [(ngModel)]="profile.coverPhotoUrl" name="coverPhotoUrl" />
+    </label>
+
+    <button type="submit" [disabled]="loading()">Save Profile</button>
+  </form>
+
+  <div *ngIf="saved() && !loading()" class="success-message">
+    Profile saved successfully!
+  </div>
+</div>
