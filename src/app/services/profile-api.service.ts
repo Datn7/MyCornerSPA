@@ -16,4 +16,8 @@ export class ProfileApiService {
   getMatchPercentage(otherUserId: number) {
     return this.http.get(`/api/profile/match/${otherUserId}`);
   }
+
+  getAllUsers() {
+    return this.http.get('/api/users'); // adjust to your API path
+  }
 }

@@ -1,0 +1,29 @@
+<p>discover works!</p>
+<div class="discover-container">
+  <h1>Discover Corners</h1>
+
+  <div class="search-user">
+    <label>
+      Enter User ID to Discover:
+      <input type="number" [(ngModel)]="userIdInput" name="userId" />
+    </label>
+    <button (click)="loadProfile()">Discover</button>
+  </div>
+
+  <div *ngIf="error()" class="error-message">{{ error() }}</div>
+  <div *ngIf="loading()" class="loading">Loading...</div>
+
+  <div *ngIf="profile()" class="profile-card">
+    <img
+      *ngIf="profile().profilePictureUrl"
+      [src]="profile().profilePictureUrl"
+      alt="Profile picture"
+    />
+    <h2>{{ profile().user?.name || "Unknown User" }}</h2>
+    <p><strong>About Me:</strong> {{ profile().aboutMe }}</p>
+    <p><strong>Interests:</strong> {{ profile().interests }}</p>
+    <p *ngIf="matchPercentage() !== null" class="match">
+      Match: {{ matchPercentage() }}%
+    </p>
+  </div>
+</div>
