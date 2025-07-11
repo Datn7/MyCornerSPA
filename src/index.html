@@ -1,13 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>MyCornerSPA</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>MyCornerSPA</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      google.accounts.id.initialize({
+        client_id:
+          "429543704133-v657egdt4thg0b2cm5jrk7h0f6qdoip4.apps.googleusercontent.com",
+        callback: this.handleCredentialResponse.bind(this),
+      });
+      google.accounts.id.renderButton(document.getElementById("buttonDiv"), {
+        theme: "outline",
+        size: "large",
+      });
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>
