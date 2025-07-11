@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  color: #06d6a0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #06d6a0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: #555555;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #dddddd;
+  border-radius: 0;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: #06d6a0;
+    box-shadow: 0 0 0 3px rgba(6, 214, 160, 0.2);
+    outline: none;
+  }
+}
+
+button {
+  background: #06d6a0;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
+  display: inline-block;
+
+  &:hover {
+    background: #04b48b;
+  }
+
+  &:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+  }
+}
+
+.error-message {
+  background: #fdecea;
+  color: #b71c1c;
+  padding: 0.75rem;
+  border-radius: 0;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.loading {
+  text-align: center;
+  color: #777777;
+  margin-bottom: 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+  a {
+    text-decoration: none;
+    color: #06d6a0;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      background: rgba(6, 214, 160, 0.15);
+      color: #04b48b;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(6, 214, 160, 0.5);
+      outline-offset: 2px;
+    }
+  }
+}
