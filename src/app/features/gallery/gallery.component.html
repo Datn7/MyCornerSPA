@@ -1,0 +1,32 @@
+<p>gallery works!</p>
+<div class="gallery-container">
+  <h1>My Visual Corner</h1>
+
+  <form (ngSubmit)="uploadImage()" class="upload-form">
+    <label>
+      Image URL
+      <input [(ngModel)]="newImageUrl" name="imageUrl" required />
+    </label>
+
+    <label>
+      Caption (optional)
+      <input [(ngModel)]="newCaption" name="caption" />
+    </label>
+
+    <button type="submit" [disabled]="loading()">Upload</button>
+  </form>
+
+  <div *ngIf="error()" class="error-message">{{ error() }}</div>
+
+  <div *ngIf="loading()" class="loading">Loading...</div>
+
+  <div class="gallery-grid">
+    <div *ngFor="let item of galleryItems()" class="gallery-item">
+      <img [src]="item.imageUrl" [alt]="item.caption || 'Gallery image'" />
+      <p>{{ item.caption }}</p>
+      <button (click)="deleteImage(item.id)" [disabled]="loading()">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
