@@ -1,0 +1,31 @@
+<p>profile-preview works!</p>
+<div class="profile-preview">
+  <img
+    *ngIf="coverPhotoUrl"
+    [src]="coverPhotoUrl"
+    alt="Cover Photo"
+    class="cover"
+  />
+  <div class="content">
+    <img
+      *ngIf="profilePictureUrl"
+      [src]="profilePictureUrl"
+      alt="Profile"
+      class="avatar"
+    />
+    <h2>About Me</h2>
+    <p>{{ aboutMe || "No description yet." }}</p>
+
+    <h3 *ngIf="interestList.length">Interests</h3>
+    <ul class="tags">
+      <li *ngFor="let tag of interestList">{{ tag }}</li>
+    </ul>
+
+    <h3 *ngIf="reactions && objectKeys(reactions).length">Reactions</h3>
+    <ul class="reactions">
+      <li *ngFor="let key of objectKeys(reactions)">
+        {{ key }}: {{ reactions[key] }}
+      </li>
+    </ul>
+  </div>
+</div>

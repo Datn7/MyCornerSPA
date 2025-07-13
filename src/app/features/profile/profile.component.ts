@@ -2,11 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProfileApiService } from '../../services/profile-api.service';
+import { ProfilePreviewComponent } from '../profile-preview/profile-preview.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ProfilePreviewComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

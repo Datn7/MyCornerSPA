@@ -43,3 +43,11 @@
     Profile saved successfully!
   </div>
 </div>
+
+<app-profile-preview
+  [aboutMe]="profile.aboutMe"
+  [interests]="profile.interests"
+  [reactionsJson]="profile.reactionsJson"
+  [profilePictureUrl]="profile.profilePictureUrl"
+  [coverPhotoUrl]="profile.coverPhotoUrl"
+/>
